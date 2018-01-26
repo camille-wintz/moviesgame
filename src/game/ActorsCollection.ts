@@ -14,9 +14,13 @@ export class ActorsCollection{
     eventer = new Eventer();
     page = 0;
     actors: Actor[] = [];
+    mainCast = 6;
 
     async addImage(actor: Actor){
         const response = await http.get(`${Conf.apiPath}/person/${actor.id}/images?api_key=${Conf.apiKey}&language=${Conf.language}`);
+        if(!response.data.profiles.length){
+            return;
+        }
         actor.file_path = response.data.profiles[0].file_path;
     }
 
@@ -53,7 +57,8 @@ export class ActorsCollection{
 
     async forMovie(movie: Movie): Promise<Actor>{
         const response = await http.get(`${Conf.apiPath}/movie/${movie.id}/credits?api_key=${Conf.apiKey}&language=${Conf.language}`);
-        const actors = response.data.cast;
+        // Only keep main cast
+        const actors = response.data.cast.splice(this.mainCast, response.data.cast.length);
         const index = Math.floor(Math.random() * actors.length);
         const actor = actors[index];
         await this.addImage(actor);

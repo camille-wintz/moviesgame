@@ -20,7 +20,9 @@ export class Timer{
     finish(){
         this.running = false;
         this.over = true;
+        this.eventer.trigger('over');
         this.eventer.trigger('updateState');
+        
         clearInterval(this.token);
     }
 

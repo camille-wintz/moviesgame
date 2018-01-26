@@ -17,7 +17,8 @@ export class Question extends React.Component<{ onYes: () => void, onNo: () => v
                     <img src={ `${Conf.imagesPath}${this.props.actor.file_path}?api_key=${Conf.apiKey}` } />
                 </div>
                 <div className={ "options" }>
-                    <button>Oui</button><button>Non</button>
+                    <button onClick={ () => this.props.onYes() }>Oui</button>
+                    <button onClick={ () => this.props.onNo() }>Non</button>
                 </div>
             </div>
         )

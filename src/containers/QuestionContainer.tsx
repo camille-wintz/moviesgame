@@ -17,6 +17,9 @@ export class QuestionContainer extends React.Component<undefined, Match>{
     }
 
     answer(answer){
+        if(answer === this.state.isAMatch){
+            userScore.logSuccess();
+        }
         this.match();
     }
 

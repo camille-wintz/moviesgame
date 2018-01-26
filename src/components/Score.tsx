@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as createElement from 'react-create-element';
 
-export class Score extends React.Component<undefined, undefined>{
+export class Score extends React.Component<{score: number }, undefined>{
     render(){
         return (
-            <h1>DaMovieQuizz</h1>
+            <div className={ "user-score" }>{ this.props.score }</div>
         )
     }
 }
