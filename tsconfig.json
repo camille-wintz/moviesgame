@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "rootDir": "src",
+        "module": "es2015",
+        "sourceMap": true,
+        "target": "es5",
+        "jsx": "react",
+        "jsxFactory": "React.createElement",
+        "moduleResolution": "node",
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        "lib": ["es2015", "dom"]
+    },
+    "exclude": [
+        "node_modules",
+        "wwwroot/dist",
+        "js",
+        "obj"
+    ]
+}
