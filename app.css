@@ -1,8 +1,33 @@
 .actor, .movie{
     float: left;
-    max-width: 300px;
+    width: 50%;
+    text-align: center;
 }
 
 img{
     max-width: 100%;
+}
+
+.time-tracker{
+    float: left;
+    width: 100%;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.options{
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+button{
+    font-size: 30px;
+}
+
+.user-score{
+    font-size: 30px;
+    width: 100%;
+    float: left;
 }

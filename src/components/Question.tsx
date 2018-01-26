@@ -8,6 +8,7 @@ export class Question extends React.Component<{ onYes: () => void, onNo: () => v
     render(){
         return (
             <div className={ "question" }>
+                <h2>Cet acteur a-t-il joué dans ce film ?</h2>
                 <div className={ "movie" }>
                     <h2>{ this.props.movie.title }</h2>
                     <img src={ `${Conf.imagesPath}${this.props.movie.poster_path}?api_key=${Conf.apiKey}` } />
