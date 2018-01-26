@@ -1,5 +1,7 @@
 import { Eventer } from 'entcore-toolkit';
 import http from 'axios';
+import { actorsCollection, Actor } from './ActorsCollection';
+import { Conf } from './Conf';
 
 export interface Movie{
     poster_path?: string;
@@ -8,8 +10,6 @@ export interface Movie{
 }
 
 class MovieCollection{
-    apiKey = '7ea5f490261a949e52930517e1b4657c';
-    language = 'fr-FR';
     page = 0;
     movies: Movie[] = [];
     loading = false;
@@ -17,7 +17,7 @@ class MovieCollection{
 
     async sync(){
         this.loading = true;
-        const response = await http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=${this.language}&page=${this.page}`);
+        const response = await http.get(`${Conf.apiPath}/movie/popular?api_key=${Conf.apiKey}&language=${Conf.language}&page=${this.page}`);
         this.movies = response.data.results;
         this.loading = false;
         this.eventer.trigger('loaded');
@@ -41,6 +41,7 @@ class MovieCollection{
         }
         const index = Math.floor(Math.random() * this.movies.length);
         const movie = this.movies[index];
+        movie.poster_path
         this.movies.splice(index, 1);
         return movie;
     }

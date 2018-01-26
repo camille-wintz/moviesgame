@@ -7,7 +7,7 @@ import { Matcher, Match } from '../game/Matcher';
 export class QuestionContainer extends React.Component<undefined, Match>{
     constructor(props){
         super(props);
-        this.state = { actor: {}, movie: { id: 0 } };
+        this.state = { actor: {}, movie: { id: 0 }, isAMatch: false };
         this.match();
     }
 
@@ -16,13 +16,13 @@ export class QuestionContainer extends React.Component<undefined, Match>{
         this.setState(nextMatch);
     }
 
-    answer(){
+    answer(answer){
         this.match();
     }
 
     render(){
         return (
-            <Question onAnswer={ () => this.answer() } actor={ this.state.actor  } movie={ this.state.movie } />
+            <Question onYes={ () => this.answer(true) } onNo={ () => this.answer(false) } actor={ this.state.actor  } movie={ this.state.movie } />
         )
     }
 }
