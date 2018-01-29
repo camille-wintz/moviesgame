@@ -8,7 +8,9 @@ export class StartButton extends React.Component<{ onStart: () => void }, undefi
 
     render(){
         return (
-            <button onClick={ () => this.props.onStart() }>Play</button>
+            <div className={ "start" }>
+                <button onClick={ () => this.props.onStart() }>Play</button>
+            </div>
         )
     }
 }
