@@ -21,6 +21,10 @@ export class UserScore{
         }
     }
 
+    start(){
+        this.currentScore = 0;
+    }
+
     updateScores(){
         this.highscores.push({ username: "Player", score: this.currentScore });
         if(localStorage){
