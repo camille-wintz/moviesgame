@@ -10,8 +10,8 @@ export class HighScores extends React.Component<{scores: Score[]}>{
         return (
             <div className={ "highscores" }>
                 <ul>
-                    { this.props.scores.map(score => (
-                        <li>{ score.username } { score.score }</li>
+                    { this.props.scores.map((score, index) => (
+                        <li key={index}>{ score.username } { score.score }</li>
                     ))}
                 </ul>
             </div>

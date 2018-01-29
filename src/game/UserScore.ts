@@ -1,5 +1,4 @@
 import { Eventer } from "entcore-toolkit";
-import { timer } from "./Timer";
 
 export interface Score{
     score: number;
@@ -12,7 +11,6 @@ export class UserScore{
     currentScore = 0;
 
     constructor(){
-        timer.eventer.on('over', () => this.updateScores());
         if(localStorage){
             const highscores = JSON.parse(localStorage.getItem('highscores'));
             if(highscores){
@@ -37,5 +35,3 @@ export class UserScore{
         this.eventer.trigger('update');
     }
 }
-
-export const userScore = new UserScore();

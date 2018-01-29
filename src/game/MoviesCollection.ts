@@ -6,7 +6,7 @@ import { Conf } from './Conf';
 export interface Movie{
     poster_path?: string;
     title?: string;
-    id: number;
+    id?: number;
 }
 
 class MovieCollection{

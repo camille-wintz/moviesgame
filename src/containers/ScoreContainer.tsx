@@ -1,21 +1,22 @@
 import * as React from 'react';
 import * as createElement from 'react-create-element';
 import { Score } from '../components/Score';
-import { userScore, UserScore } from '../game/UserScore';
+import { UserScore } from '../game/UserScore';
+import { game } from '../game/Game';
 
 export class ScoreContainer extends React.Component<undefined, UserScore>{
     constructor(props){
         super(props);
-        this.state = userScore;
+        this.state = game.userScore;
     }
 
     componentDidMount(){
-        userScore.eventer.on('update', () => this.setState(userScore));
+        game.userScore.eventer.on('update', () => this.setState(game.userScore));
     }
 
     render(){
         return (
-            <Score score={ userScore.currentScore } />
+            <Score score={ game.userScore.currentScore } />
         )
     }
 }

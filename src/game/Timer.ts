@@ -17,13 +17,17 @@ export class Timer{
         this.token = setInterval(() => this.increment(), 1000);
     }
 
-    finish(){
+    stop(){
+        clearInterval(this.token);
         this.running = false;
         this.over = true;
+    }
+
+    finish(){
+        this.stop();
+
         this.eventer.trigger('over');
         this.eventer.trigger('updateState');
-        
-        clearInterval(this.token);
     }
 
     increment(){
@@ -34,5 +38,3 @@ export class Timer{
         }
     }
 }
-
-export const timer = new Timer();
