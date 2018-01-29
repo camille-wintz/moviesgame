@@ -14,6 +14,10 @@ export class ScoreContainer extends React.Component<undefined, UserScore>{
         game.userScore.eventer.on('update', () => this.setState(game.userScore));
     }
 
+    componentWillUnmount(){
+        game.userScore.eventer.off('update');
+    }
+
     render(){
         return (
             <Score score={ game.userScore.currentScore } />

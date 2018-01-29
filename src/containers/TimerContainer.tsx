@@ -11,6 +11,10 @@ export class TimerContainer extends React.Component<undefined, undefined>{
         game.timer.eventer.on('tick', () => this.setState({ timer: Timer }));
     }
 
+    componentWillUnmount(){
+        game.timer.eventer.off('tick');
+    }
+
     render(){
         return (
             <TimeTracker time={ game.timer.time } />
